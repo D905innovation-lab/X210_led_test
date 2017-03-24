@@ -61,15 +61,35 @@ int led_Open(int led_num)
 	return -1;
 }
 
-int blink(int led_num,int s)
+/**
+	 * LED闪烁
+	 *
+	 * @author panmk
+	 * @param blink  @必须open设备后使用
+	 * @parameter (int)led_num (int)ms
+	 * @return 	-1 	操作失败
+	 * 			其他值为写入字符长度
+	 *
+	 */
+int blink(int led_num,int ms)
 {
 	int ret = -1;
 	ret = led_On(led_num);
-	sleep(s);
+	usleep(ms*1000);
 	ret = led_Off(led_num);
 	return ret;
 }
 
+/**
+	 * 点亮LED
+	 *
+	 * @author panmk
+	 * @param led_On  @必须open设备后使用
+	 * @parameter (int)led_num
+	 * @return 	-1 	操作失败
+	 * 			其他值为写入字符长度
+	 *
+	 */
 int led_On(int led_num)
 {
 	char *On = "1";
@@ -93,7 +113,16 @@ int led_On(int led_num)
 	return -1;
 }
 
-
+/**
+	 * 熄灭LED
+	 *
+	 * @author panmk
+	 * @param led_Off  @必须open设备后使用
+	 * @parameter (int)led_num
+	 * @return 	-1 	操作失败
+	 * 			其他值为写入字符长度
+	 *
+	 */
 int led_Off(int led_num)
 {
 	char *Off = "0";

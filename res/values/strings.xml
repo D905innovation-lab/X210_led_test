@@ -5,4 +5,5 @@
     <string name="hello_world">Hello world!</string>
 	<string name="bn_on">打开led</string>
 	<string name="bn_off">关闭led</string>
+	<string name="bn_blink">led闪烁</string>
 </resources>

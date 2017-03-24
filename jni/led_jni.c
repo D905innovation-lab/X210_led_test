@@ -43,8 +43,8 @@ JNIEXPORT jint JNICALL c_led_off(JNIEnv *env, jobject obj, jint led_num){
  * Method:    led_blink
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL c_led_blink(JNIEnv *env, jobject obj, jint led_num,jint s){
-	return blink(led_num,s);
+JNIEXPORT jint JNICALL c_led_blink(JNIEnv *env, jobject obj, jint led_num,jint ms){
+	return blink(led_num,ms);
 }
 
 /*
@@ -62,7 +62,8 @@ static const JNINativeMethod methods[] ={
 	{"led_close", "(I)I", (void *)c_led_close},
 	{"led_off", "(I)I", (void *)c_led_off},
 	{"led_blink", "(II)I", (void *)c_led_blink},
-	{"led_on", "(I)I", (void *)c_led_on}
+	{"led_on", "(I)I", (void *)c_led_on},
+//	{"hello","()Ljava/lang/String;", (void *)c_hello}
 };
 
 JNIEXPORT jint JNICALL
@@ -79,7 +80,7 @@ JNI_OnLoad(JavaVM *jvm, void *reserved){
 		return JNI_ERR;
 	}
 
-	if ((*env)->RegisterNatives(env, cls, methods, 5) < 0)
+	if ((*env)->RegisterNatives(env, cls, methods, METHODS_NUM) < 0)
 		return JNI_ERR;
 
 	return JNI_VERSION_1_4;

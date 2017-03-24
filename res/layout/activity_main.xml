@@ -4,22 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="${relativePackage}.${activityClass}" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-    
+  
     <Button 
         android:id="@+id/bn_open"
         android:text="@string/bn_on"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         />
     <Button 
         android:id="@+id/bn_close"
         android:text="@string/bn_off"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button 
+        android:id="@+id/bn_blink"
+        android:text="@string/bn_blink"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         />
 
